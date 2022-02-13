@@ -12,7 +12,7 @@ terraform {
 provider "datadog" {
   api_key = var.datadog_api_key
   app_key = var.datadog_app_key
-  api_url = "https://api.datadoghq.eu/"
+  api_url = "https://api.datadoghq.eu/" #.eu Europe / .com Us and other
 }
 
 # Manage tag configurations for a Datadog count or gauge metric
