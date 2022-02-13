@@ -18,6 +18,6 @@ provider "datadog" {
 # Manage tag configurations for a Datadog count or gauge metric
 resource "datadog_metric_tag_configuration" "dd_metric" {
   metric_name = var.datadog_metrics_name
-  metric_type = "count"
+  metric_type = var.datadog_metrics_type
   tags        = ["prova"]
 }
