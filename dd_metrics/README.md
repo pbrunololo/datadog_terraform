@@ -2,9 +2,15 @@
 ## Extract Metric Type
 
 ## Index
-* [Extract_Metric_Type](#extractmetrictype)
 * [Modify_Metric_Tag](#modifytags)
+* [Extract_Metric_Type](#extractmetrictype)
 
+## Modify_Metric_Tag
+
+Il seguente codice terraform, serve per settare i TAG ad una metrica specifica.
+<br>
+
+----
 
 ## Extract_Metric_Type
 
@@ -17,8 +23,3 @@ metric_name,metric_type
 Lo script bash, utilizza l'api Datadog per estrarre la metric_type.
 
 ----
-
-## Modify_Metric_Tag
-
-Il seguente codice terraform, serve per settare i TAG ad una metrica specifica.
-<br>
