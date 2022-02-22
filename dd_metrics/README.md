@@ -7,7 +7,15 @@
 
 ## Modify_Metric_Tag
 
-Il seguente codice terraform, serve per settare i TAG ad una metrica specifica.
+Il codice terraform composto da 
+
+- main.tf
+- outputs.tf 
+- terraform.tfvars
+- variables.tf
+
+serve per settare un determinato TAG (nel nostro esempio metteremo prova) ad una metrica specifica.<br>
+Questa operazione può incidere sull'indicizzazione delle custom metrics.
 <br>
 
 ----
