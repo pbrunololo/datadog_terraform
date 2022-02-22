@@ -14,7 +14,7 @@ Il codice terraform composto da
 - terraform.tfvars
 - variables.tf
 
-serve per settare un determinato TAG (nel nostro esempio metteremo prova) ad una metrica specifica.<br>
+serve per settare un determinato TAG (nel nostro esempio metteremo "prova") ad una metrica specifica.<br>
 Questa operazione può incidere sull'indicizzazione delle custom metrics.
 <br>
 
