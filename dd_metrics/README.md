@@ -28,6 +28,7 @@ Per utilizzare il codice terraform è necessario avere una lista di metriche di 
 metric_name,metric_type
 ```
 <br>
-Lo script bash, utilizza l'api Datadog per estrarre la metric_type.
+Lo script bash, utilizza l'api Datadog per estrarre la metric_type.<br>
+L'estrazione parte da una lista, l'esempio è nella cartella file prova.txt.
 
 ----
