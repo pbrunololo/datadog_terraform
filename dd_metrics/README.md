@@ -1,5 +1,5 @@
 # Datadog Terraform Metrics
-## Extract Metric Type
+## Working with metrics
 
 ## Index
 * [Modify_Metric_Tag](#modifytags)
@@ -14,16 +14,16 @@ Il codice terraform composto da
 - terraform.tfvars
 - variables.tf
 
-serve per settare un determinato TAG (nel nostro esempio metteremo "prova") ad una metrica specifica.<br>
-Questa operazione può incidere sull'indicizzazione delle custom metrics.
-<br>
+serve per settare un determinato TAG (nel nostro esempio metteremo "prova") ad una metrica specifica su Datadog.<br>
+Questa operazione può incidere sull'indicizzazione delle custom metrics.<br>
+Per eseguire correttamente la componente terraform, è propedeutico l'utilizzo dello script bash descritto di seguito.<br>
 
 ----
 
 ## Extract_Metric_Type
 
 Nella cartella extract_Mtype è presente lo script bash "dd_extract_metadata_metrics.sh"<br>
-Per utilizzare il codice terraform è necessario avere una lista di questo tipo : <br><br>
+Per utilizzare il codice terraform è necessario avere una lista di metriche di questo tipo : <br><br>
 ```
 metric_name,metric_type
 ```
