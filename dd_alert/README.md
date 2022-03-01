@@ -1,1 +1,1 @@
-# WIP - Creating Alert with Terraform in Datadog
+# WIP - Datadog and Terraform - Creating Alert
