@@ -1,5 +1,4 @@
-# Datadog Terraform Metrics
-## Working with metrics
+# Datadog and Terraform - Working with Metrics
 
 ## Index
 * [Modify_Metric_Tag](#modifytags)
