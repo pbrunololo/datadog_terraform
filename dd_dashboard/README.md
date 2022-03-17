@@ -9,3 +9,4 @@ Il codice terraform composto da
 - variables.tf
 
 serve creare in automatico una dashboard datadog partendo da un json di base <br>
+con impostate anche delle variabili generali che vengono utilizzate nei widget <bn>

@@ -49,7 +49,7 @@ resource "datadog_dashboard_json" "dashboard_json" {
 			},
 			"definition": {
 				"type": "free_text",
-				"text": "SQL DB - Reportistica",
+				"text": "SQL DB",
 				"color": "#4d4d4d",
 				"font_size": "auto",
 				"text_align": "left"
@@ -87,7 +87,7 @@ resource "datadog_dashboard_json" "dashboard_json" {
 						"response_format": "timeseries",
 						"queries": [
 							{
-								"query": "avg:azure.sql_servers_databases.status{$variabili} by {name}",
+								"query": "avg:azure.sql_servers_databases.status{$var_1} by {name}",
 								"data_source": "metrics",
 								"name": "query1"
 							}
