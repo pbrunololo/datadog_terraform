@@ -11,4 +11,4 @@ Il codice terraform composto da
 serve a creare in automatico una dashboard Datadog partendo da un json di base <br>
 Sono anche impostate delle variabili generali che vengono utilizzate nei widget <bn>
 
-## WIP - Dashboard All Code
+## WIP - Dashboard From Code
