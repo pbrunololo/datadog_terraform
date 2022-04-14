@@ -16,13 +16,14 @@ provider "datadog" {
 }
 
 # Create a new Datadog monitor
-resource "datadog_monitor" "pb_test_monitor" {
-  name               = "PB_Monitor_Test"
+resource "datadog_monitor" "test_monitor" {
+  name               = "Monitor_Test"
   type               = "metric alert"
-  message            = "Monitor triggered. Notify: @paolo1.bruno@posteitaliane.it "
+  message            = "Monitor triggered. Notify: @prova@test.com " #insert valide mail address
   escalation_message = "Escalation message"
 
-  query = "sum(last_5m):avg:azure.datafactory_factories.pipeline_failed_runs{subscription_name:poste-corporate-produzione,resource_group:deploydashboard-prod-rg,name:pdepdasetladf01azwe,name:vol_digital_synapseextractor} by {name}.as_count() > 1"
+# This example for cpu_usage from env:test groupby name > 1
+  query = "sum(last_5m):avg:system.cpu.user{env:test} by {name}.as_count() > 1"
 
   monitor_thresholds {
     critical          = 1
@@ -31,5 +32,5 @@ resource "datadog_monitor" "pb_test_monitor" {
 
   notify_no_data    = false
   renotify_interval = 60
-  tags              = ["provaPB"]
+  tags              = ["prova","test"] #list of tag
 }
