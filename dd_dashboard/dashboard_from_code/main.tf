@@ -15,32 +15,14 @@ provider "datadog" {
 
 # Example Free Layout
 resource "datadog_dashboard" "free_dashboard" {
-  title        = "Free Layout Dashboard"
-  description  = "Created using the Datadog provider in Terraform"
-  layout_type  = "free"
-  is_read_only = false
-
-  widget {
-    event_stream_definition {
-      query       = "*"
-      event_size  = "l"
-      title       = "Widget Title"
-      title_size  = 16
-      title_align = "left"
-      live_span   = "1h"
-    }
-    widget_layout {
-      height = 43
-      width  = 32
-      x      = 0
-      y      = 0
-    }
-  }
+  title       = "Free Layout Dashboard by Terraform"
+  description = "Created using the Datadog provider in Terraform"
+  layout_type = "free"
 
   widget {
     event_timeline_definition {
       query       = "*"
-      title       = "Widget Title"
+      title       = "test_timeline" #Title
       title_size  = 16
       title_align = "left"
       live_span   = "1h"
@@ -55,7 +37,7 @@ resource "datadog_dashboard" "free_dashboard" {
 
   widget {
     free_text_definition {
-      text       = "free text content"
+      text       = "test_free_text"
       color      = "#d00"
       font_size  = "36"
       text_align = "left"
@@ -70,7 +52,7 @@ resource "datadog_dashboard" "free_dashboard" {
 
   widget {
     image_definition {
-      url    = "https://images.pexels.com/photos/67636/rose-blue-flower-rose-blooms-67636.jpeg?auto=compress&cs=tinysrgb&h=350"
+      url    = "https://static.datadoghq.com/static/images/logos/ceph_avatar.svg" # use url for image
       sizing = "fit"
       margin = "small"
     }
@@ -81,38 +63,17 @@ resource "datadog_dashboard" "free_dashboard" {
       y      = 0
     }
   }
-
-  widget {
-    log_stream_definition {
-      indexes             = ["main"]
-      query               = "error"
-      columns             = ["core_host", "core_service", "tag_source"]
-      show_date_column    = true
-      show_message_column = true
-      message_display     = "expanded-md"
-      sort {
-        column = "time"
-        order  = "desc"
-      }
-    }
-    widget_layout {
-      height = 36
-      width  = 32
-      x      = 0
-      y      = 45
-    }
-  }
-
+  
   widget {
     manage_status_definition {
       color_preference    = "text"
       display_format      = "countsAndList"
       hide_zero_counts    = true
-      query               = "type:metric"
+      query               = "tag:XXX" #use tag for alert list
       show_last_triggered = false
       sort                = "status,asc"
       summary_type        = "monitors"
-      title               = "Widget Title"
+      title               = "Widget Title" #Title
       title_size          = 16
       title_align         = "left"
     }
@@ -127,8 +88,8 @@ resource "datadog_dashboard" "free_dashboard" {
   widget {
     trace_service_definition {
       display_format     = "three_column"
-      env                = "datadog.com"
-      service            = "alerting-cassandra"
+      env                = "none"
+      service            = "XXXXX" #serviceAPM
       show_breakdown     = true
       show_distribution  = true
       show_errors        = true
@@ -136,8 +97,8 @@ resource "datadog_dashboard" "free_dashboard" {
       show_latency       = false
       show_resource_list = false
       size_format        = "large"
-      span_name          = "cassandra.query"
-      title              = "alerting-cassandra #env:datadog.com"
+      span_name          = "XXXXX.query" #SpanName service.query
+      title              = "Test" #Title
       title_align        = "center"
       title_size         = "13"
       live_span          = "1h"
@@ -168,14 +129,14 @@ resource "datadog_dashboard" "free_dashboard" {
         query {
           metric_query {
             data_source = "metrics"
-            query       = "avg:system.cpu.user{app:general} by {env}"
+            query       = "avg:system.cpu.user{env:production} by {host}" #query 1
             name        = "my_query_1"
             aggregator  = "sum"
           }
         }
         query {
           metric_query {
-            query      = "avg:system.cpu.user{app:general} by {env}"
+            query      = "avg:system.cpu.user{env:production} by {host}" #query 2
             name       = "my_query_2"
             aggregator = "sum"
           }
@@ -186,36 +147,6 @@ resource "datadog_dashboard" "free_dashboard" {
       height = 16
       width  = 25
       x      = 58
-      y      = 83
-    }
-  }
-  widget {
-    timeseries_definition {
-      request {
-        query {
-          event_query {
-            name        = "my-query"
-            data_source = "logs"
-            indexes     = ["days-3"]
-            compute {
-              aggregation = "count"
-            }
-            group_by {
-              facet = "host"
-              sort {
-                metric      = "@lambda.max_memory_used"
-                aggregation = "avg"
-              }
-              limit = 10
-            }
-          }
-        }
-      }
-    }
-    widget_layout {
-      height = 16
-      width  = 28
-      x      = 29
       y      = 83
     }
   }
@@ -245,6 +176,7 @@ resource "datadog_dashboard" "free_dashboard" {
     }
   }
 
+  #MAIN VARIABLE Dashboard
   template_variable {
     name    = "var_1"
     prefix  = "host"
